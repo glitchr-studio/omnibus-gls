@@ -3,7 +3,6 @@
 namespace Omnibus\Gls;
 
 use Omnibus\Config;
-use Omnibus\Exception\InvalidConfigException;
 use Omnibus\GatewayFactory;
 use Omnibus\Gls\Action\CancelAction;
 use Omnibus\Gls\Action\ShippingAction;
@@ -30,7 +29,7 @@ final class GlsGatewayFactory extends GatewayFactory
             'omnibus.required_options' => ['username', 'password', 'contact_id'],
             'sandbox' => false,
             'omnibus.api' => function (Config $c) {
-                $http = $this->http ?? (class_exists(HttpClient::class) ? HttpClient::create() : throw new InvalidConfigException('The "gls" gateway needs symfony/http-client.'));
+                $http = $this->http ?? HttpClient::create();
 
                 return new Api($http, (string) $c['username'], (string) $c['password'], (string) $c['contact_id'], (bool) $c['sandbox']);
             },
