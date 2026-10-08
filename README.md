@@ -36,4 +36,4 @@ test login, the contact id and then the production login).
 Built from GLS's published ShipIT documentation and tested on recorded answers; not yet run
 against the test system: that needs the credentials above.
 
-License: LGPL-3.0-or-later.
+License: MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
